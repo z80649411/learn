@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: demo
+  profiles:
+    active: local
+
+---
+
+spring:
+  profiles: local
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://123.206.62.172:3300/demo?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: Drb.199519.cq
+server:
+  port: 80
+
+
+mybatis:
+  configuration:
+    #mybatis开启查询结果转下划线
+    map-underscore-to-camel-case: true
+  # 指定xml位置
+  mapperLocations: classpath:mapper/*.xml
+
