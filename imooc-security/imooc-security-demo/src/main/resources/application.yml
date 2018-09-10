@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: demo
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://123.206.62.172:3300/imooc_security?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: Drb.199519.cq
+    initialize: true
+  freemarker:
+    suffix: .html
+  session:
+    store-type: none
+  redis:
+    host: 123.206.62.172
+    port: 6799
+    password: Drb.199519.cq
+
+security:
+  oauth2:
+    client:
+      clientId: imooc
+      clientSecret: imoocsecret
+
+#配置自己的登录页面
+imooc:
+  security:
+    browser:
+#      loginPage: /demo-signIn.html
+      LoginType: JSON
+      signUpUrl: /demo-signUp.html
+    code:
+      image:
+        length: 6
+        width: 100
+        url: /user,/user/*
+      sms:
+        url: /user,/user/*
+    social:
+      qq:
+        app-id: 1
+        app-secret: 1
+        providerId: callback.do
+      filterProcessesUrl: /qqLogin

@@ -1,0 +1,30 @@
+spring:
+#  application:
+#    name: demo
+  profiles:
+    active: local
+
+---
+
+spring:
+  profiles: local
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://123.206.62.172:3300/demo?useUnicode=true&characterEncoding=utf-8&useSSL=false
+#    username: root
+#    password: Drb.199519.cq
+#    initialize: true
+#  jpa:
+#    show-sql: true
+  redis:
+    host: 123.206.62.172
+    port: 6799
+    password: Drb.199519.cq
+
+server:
+  port: 80
+
+
+
+
+

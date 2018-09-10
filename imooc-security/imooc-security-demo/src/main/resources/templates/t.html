@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title1</title>
+</head>
+<body>
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery.form/4.2.2/jquery.form.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/oauth/token",
+            dataType: "json",
+            headers: {
+                'Authorization': 'Basic aW1vb2M6aW1vb2NzZWNyZXQ=',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            data: {
+                "grant_type": "authorization_code",
+                "client_id": "imooc",
+                "redirect_uri": "http://example.com",
+                "scope": "all",
+                "code": "KkHDyb"
+            },
+            success: function (data) {
+               console.log(data);
+            }
+        });
+    });
+
+</script>
+</body>
+</html>

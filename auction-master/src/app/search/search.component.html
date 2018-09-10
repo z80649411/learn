@@ -1,0 +1,29 @@
+<form [formGroup]="formModel" (ngSubmit)="onSearch()" novalidate>
+  <div class="form-group"
+       [class.has-error]="(formModel.hasError('minlength','title')||formModel.hasError('required','title'))&&formModel.get('title').touched">
+    <label for="productTitle">商品名称:</label>
+    <input formControlName="title" type="text" id="productTitle" placeholder="商品名称" class="form-control">
+    <div [hidden]=" formModel.get('title').untouched">
+      <span class="help-block" [class.hidden]="!formModel.hasError('minlength','title')">请至少输入3个字</span>
+      <span class="help-block" [class.hidden]="!formModel.hasError('required','title')">请输入商品名称</span>
+    </div>
+  </div>
+  <div class="form-group"
+       [class.has-error]="formModel.hasError('positiveNumber','price') && formModel.get('price').touched">
+    <label for="productPrice">商品价格:</label>
+    <input formControlName="price" type="number" min="0" id="productPrice" placeholder="商品价格" class="form-control">
+    <div [hidden]=" formModel.get('price').untouched">
+      <span class="help-block" [class.hidden]="!formModel.hasError('positiveNumber','price')">请输入正确的商品价格</span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="productCategory">商品分类:</label>
+    <select id="productCategory" formControlName="category" class="form-control">
+      <option value="-1">全部分类</option>
+      <option *ngFor="let categor of categories" [value]="categor">{{categor}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary btn-block">搜索</button>
+  </div>
+</form>
