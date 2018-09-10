@@ -1,7 +1,14 @@
 package com.dr.mybatiscase.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.io.Serializable;
 
+@Getter
+@Setter
+@ToString
 public class My implements Serializable {
     private String a;
 

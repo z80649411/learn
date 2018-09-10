@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dr.mybatiscase.mybatis.MyMapper">
+  <resultMap id="BaseResultMap" type="com.dr.mybatiscase.entity.My">
+    <id column="a" jdbcType="VARCHAR" property="a" />
+    <result column="b" jdbcType="VARCHAR" property="b" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    a, b
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from my
+    where a = #{a,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from my
+    where a = #{a,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.dr.mybatiscase.entity.My">
+    insert into my (a, b)
+    values (#{a,jdbcType=VARCHAR}, #{b,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dr.mybatiscase.entity.My">
+    insert into my
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="a != null">
+        a,
+      </if>
+      <if test="b != null">
+        b,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="a != null">
+        #{a,jdbcType=VARCHAR},
+      </if>
+      <if test="b != null">
+        #{b,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dr.mybatiscase.entity.My">
+    update my
+    <set>
+      <if test="b != null">
+        b = #{b,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where a = #{a,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dr.mybatiscase.entity.My">
+    update my
+    set b = #{b,jdbcType=VARCHAR}
+    where a = #{a,jdbcType=VARCHAR}
+  </update>
+</mapper>
