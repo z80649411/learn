@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: demo
+  profiles:
+    active: local
+
+---
+
+spring:
+  profiles: local
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://123.206.62.172:3300/jpaTest?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: Drb.199519.cq
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 80
+
