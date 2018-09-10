@@ -1,0 +1,7 @@
+
+spring:
+  redis:
+    host: 123.206.62.172
+    port: 6799
+    password: Drb.199519.cq
+
