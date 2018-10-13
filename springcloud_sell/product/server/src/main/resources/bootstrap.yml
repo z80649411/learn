@@ -1,12 +1,12 @@
 spring:
   application:
     name: product
-  cloud:
-    config:
-      discovery:
-        enabled: true
-        service-id: CONFIG
-      profile: dev
+#  cloud:
+#    config:
+#      discovery:
+#        enabled: true
+#        service-id: CONFIG
+#      profile: dev
   datasource:
     username: root
     password: Drb.199519.cq
